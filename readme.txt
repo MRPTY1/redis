@@ -30,9 +30,38 @@ Redis配置文件redis.conf
     dbfilename dump.rdb 镜像备份文件的文件名，默认为 dump.rdb
     详细讲解https://blog.csdn.net/neubuffer/article/details/17003909
 Redis常用命令
-    详细命令http://redisdoc.com/index.html
-    set [name] [value]
-    mset [name] [value]....
-    get [name]
-    mget [name]....
-    keys *
+    详细命令http://redisdoc.com/index.html;https://www.runoob.com/redis/redis-keys.html
+    key命令
+    del [name] 删除
+    keys * 列出所有key
+    rename [name] [new name]
+    exist [name] 判断key是否存在 0|1
+    string字符串 用于存储字符串 [name] [value]
+    set [name] [value] 设置字符串
+    mset [name] [value].... 设置多个字符串
+    get [name] 获取字符串
+    mget [name].... 获多个字符串
+    hash哈希表 用于存储键值对 [key] [field] [value]....
+    hset [key] [field] [value]....设置哈希表可设置多个值
+    hget [key] [field] 获取哈希表中的值
+    hdel [key] [field].... 删除哈希表的键值对
+    hexist [key] [field].... 判断哈希表的键值对是否存在
+    hkeys [key] 
+    hvals [key]
+    list列表 可以实现队列和栈的效果
+    lpush [key] [value]..... 往列表头部添加值
+    rpush [key] [value]..... 往列表尾部添加值
+    lpush [key] 取出头部的值
+    rpush [key] 取出尾部的值
+    llen [key] 获取长度
+    lset [key] [index] [value] 设置坐标下的值
+    lindex [key] [index] 获取坐标的值 不会取出
+    set集合 添加的值无序不可重复 用于对比数据
+    sadd [key] [value].... 添加数值
+    scard [key] 获取集合个数
+    sdiff [key] {[key]....} 获取差集
+    sdiffstore [name] [key] {[key]....} 获取差集 然后复制到[name]中
+    smembers [key] 返回集合的所有元素
+    sismember [key] [value] 判断元素是否存在集合中
+    spop [key] [count] 随机取出集合中的元素
+    sorted set 有序集合
